@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Care — É mais cuidado, sempre.</title>
+
+<style>
+:root{
+--marrom:#4a241d;
+--laranja:#f47a28;
+--bege:#fff5e9;
+--verde:#3e9b83;
+--creme:#fffaf4;
+--texto:#30231f;
+--branco:#fff
+}
+
+*{box-sizing:border-box}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+margin:0;
+font-family:Inter,Arial,sans-serif;
+background:var(--creme);
+color:var(--texto)
+}
+
+header{
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(255,250,244,.94);
+backdrop-filter:blur(12px);
+border-bottom:1px solid #eadfd4
+}
+
+.nav{
+max-width:1180px;
+margin:auto;
+padding:12px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+text-decoration:none;
+color:var(--marrom);
+font-weight:900;
+font-size:23px
+}
+
+.brand img{
+width:48px;
+height:48px;
+object-fit:cover;
+object-position:center 25%;
+border-radius:14px;
+border:2px solid #ead1bd
+}
+
+.brand b{
+color:var(--laranja)
+}
+
+nav a{
+margin-left:18px;
+color:var(--marrom);
+text-decoration:none;
+font-weight:800;
+font-size:14px
+}
+
+nav a:hover{
+color:var(--laranja)
+}
+
+.hero{
+max-width:1180px;
+margin:auto;
+padding:72px 20px 58px;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:40px;
+align-items:center
+}
+
+.tag{
+display:inline-flex;
+padding:8px 13px;
+background:#ffe1cc;
+color:var(--marrom);
+border-radius:999px;
+font-weight:900
+}
+
+h1{
+font-size:clamp(43px,6vw,72px);
+line-height:.98;
+margin:18px 0;
+color:var(--marrom);
+letter-spacing:-2px
+}
+
+h1 span{
+color:var(--laranja)
+}
+
+.hero p{
+font-size:19px;
+max-width:650px;
+color:#654f47
+}
+
+.buttons{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:25px
+}
+
+.btn{
+border:0;
+border-radius:14px;
+padding:13px 18px;
+font-weight:900;
+cursor:pointer;
+text-decoration:none;
+display:inline-block
+}
+
+.primary{
+background:var(--laranja);
+color:white;
+box-shadow:0 9px 20px #f47a2840
+}
+
+.dark{
+background:var(--marrom);
+color:#fff
+}
+
+.green{
+background:var(--verde);
+color:#fff
+}
+
+.light{
+background:#fff;
+color:var(--marrom);
+border:1px solid #e6d9ce
+}
+
+.hero-box{
+background:linear-gradient(145deg,#fff,#ffe9d8);
+border-radius:32px;
+padding:24px;
+box-shadow:0 20px 50px #4a241d16;
+border:1px solid #efd9c8;
+text-align:center
+}
+
+.hero-box img{
+width:100%;
+max-height:330px;
+object-fit:cover;
+object-position:center 27%;
+border-radius:22px
+}
+
+.slogan{
+font-size:25px;
+font-weight:900;
+color:var(--marrom);
+margin-top:15px
+}
+
+.slogan span{
+color:var(--laranja)
+}
+
+section{
+padding:68px 20px
+}
+
+.container{
+max-width:1180px;
+margin:auto
+}
+
+.title{
+text-align:center;
+color:var(--marrom);
+font-size:36px;
+margin:0 0 8px
+}
+
+.sub{
+text-align:center;
+color:#725f57;
+max-width:700px;
+margin:0 auto 32px
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px
+}
+
+.card{
+background:#fff;
+border:1px solid #ecdfd5;
+border-radius:22px;
+padding:24px;
+box-shadow:0 10px 28px #4a241d0b
+}
+
+.card h3{
+color:var(--marrom);
+margin:8px 0
+}
+
+.icon{
+font-size:35px
+}
+
+.price{
+font-size:36px;
+font-weight:900;
+color:var(--laranja);
+margin:8px 0
+}
+
+.dark-section{
+background:var(--marrom);
+color:#fff
+}
+
+.dark-section .title{
+color:#fff
+}
+
+.dark-section .sub{
+color:#f6e9df
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:14px
+}
+
+.step{
+background:#fff;
+color:var(--marrom);
+padding:20px 12px;
+border-radius:18px;
+text-align:center
+}
+
+.step strong{
+display:block;
+color:var(--laranja);
+font-size:27px
+}
+
+.filters{
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap;
+margin:25px 0
+}
+
+.filter{
+border:1px solid #e1d2c7;
+background:#fff;
+color:var(--marrom);
+border-radius:999px;
+padding:9px 15px;
+font-weight:800;
+cursor:pointer
+}
+
+.filter.active,
+.filter:hover{
+background:var(--verde);
+color:#fff;
+border-color:var(--verde)
+}
+
+.pros{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px
+}
+
+.pro{
+background:#fff;
+border:1px solid #eadfd5;
+border-radius:24px;
+padding:20px;
+position:relative;
+box-shadow:0 12px 30px #4a241d0b
+}
+
+.avatar{
+width:82px;
+height:82px;
+border-radius:22px;
+background:#ffe0c9;
+display:grid;
+place-items:center;
+font-size:47px
+}
+
+.pro .top{
+display:flex;
+gap:15px;
+align-items:center
+}
+
+.pro h3{
+margin:0;
+color:var(--marrom)
+}
+
+.verified{
+color:var(--verde);
+font-weight:900;
+font-size:13px
+}
+
+.stars{
+color:#f5a623;
+font-weight:900;
+margin:8px 0
+}
+
+.chips{
+display:flex;
+gap:6px;
+flex-wrap:wrap
+}
+
+.chip{
+background:#f4eee8;
+padding:5px 8px;
+border-radius:999px;
+font-size:12px
+}
+
+.pro-actions{
+display:flex;
+gap:8px;
+margin-top:15px
+}
+
+.pro-actions button{
+flex:1
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px
+}
+
+.about .card{
+min-height:180px
+}
+
+.rating-box{
+max-width:700px;
+margin:0 auto;
+background:#fff;
+padding:28px;
+border-radius:24px;
+border:1px solid #eadfd5;
+text-align:center
+}
+
+.rating-stars button{
+font-size:34px;
+border:0;
+background:none;
+cursor:pointer;
+filter:grayscale(1);
+opacity:.5
+}
+
+.rating-stars button.on{
+filter:none;
+opacity:1
+}
+
+.review{
+width:100%;
+padding:13px;
+border:1px solid #ddcec2;
+border-radius:12px;
+margin:15px 0;
+font:inherit
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:#2a1712aa;
+display:none;
+align-items:center;
+justify-content:center;
+z-index:50;
+padding:20px
+}
+
+.modal.show{
+display:flex
+}
+
+.modal-box{
+background:#fff;
+max-width:520px;
+width:100%;
+border-radius:25px;
+padding:28px;
+position:relative
+}
+
+.close{
+position:absolute;
+right:15px;
+top:12px;
+border:0;
+background:#f3e8df;
+border-radius:50%;
+width:34px;
+height:34px;
+cursor:pointer;
+font-weight:900
+}
+
+footer{
+background:#2f1712;
+color:#fff;
+text-align:center;
+padding:30px 20px
+}
+
+footer strong{
+color:#ff9b62
+}
+
+@media(max-width:850px){
+
+.hero,
+.about{
+grid-template-columns:1fr
+}
+
+.cards,
+.pros{
+grid-template-columns:1fr 1fr
+}
+
+.steps{
+grid-template-columns:1fr 1fr
+}
+
+nav a{
+display:none
+}
+
+}
+
+@media(max-width:520px){
+
+.cards,
+.pros{
+grid-template-columns:1fr
+}
+
+.hero{
+padding-top:45px
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<a class="brand" href="#inicio">
+<img src="logo-pet-care.jpg" alt="Logo Pet Care">
+<span>Pet <b>Care</b></span>
+</a>
+
+<nav>
+<a href="#servicos">Serviços</a>
+<a href="#profissionais">Profissionais</a>
+<a href="#como">Como funciona</a>
+<a href="#avaliar">Avaliar</a>
+</nav>
+
+</div>
+</header>
+
+
+<section class="hero" id="inicio">
+
+<div>
+
+<span class="tag">🐾 Cuidado que conecta</span>
+
+<h1>
+Pet Care é <span>mais cuidado,</span> sempre.
+</h1>
+
+<p>
+Uma plataforma para encontrar profissionais que cuidam e acolhem seu pet quando você precisar — com praticidade, carinho e segurança.
+</p>
+
+<div class="buttons">
+
+<a class="btn primary" href="#profissionais">
+Encontrar profissional
+</a>
+
+<a class="btn dark" href="#como">
+Como funciona
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-box">
+
+<img src="logo-pet-care.jpg" alt="Símbolo da Pet Care">
+
+<div class="slogan">
+É <span>mais cuidado,</span> sempre. ❤️
+</div>
+
+<p>
+Marrom • Laranja • Bege • Verde
+</p>
+
+</div>
+
+</section>
+
+
+<section id="servicos">
+
+<div class="container">
+
+<h2 class="title">
+Tudo para facilitar o cuidado
+</h2>
+
+<p class="sub">
+Serviços pensados para diferentes necessidades dos tutores e dos pets.
+</p>
+
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🏠</div>
+<h3>Acolhimento e hospedagem</h3>
+<p>
+Encontre um profissional para cuidar do seu pet durante sua ausência.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">🐶</div>
+<h3>Cuidados personalizados</h3>
+<p>
+Combine as necessidades do pet com o profissional escolhido.
+</p>
+</div>
+
+
+<div class="card">
+<div class="icon">📍</div>
+<h3>Profissionais próximos</h3>
+<p>
+Veja opções por localização e compare avaliações e serviços.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="profissionais" style="background:#fff">
+
+<div class="container">
+
+<h2 class="title">
+Conheça nossos profissionais
+</h2>
+
+<p class="sub">
+Personagens fictícios para representar como a plataforma poderá funcionar.
+</p>
+
+
+<div class="filters">
+
+<button class="filter active" data-filter="todos">
+Todos
+</button>
+
+<button class="filter" data-filter="cachorro">
+Cães
+</button>
+
+<button class="filter" data-filter="gato">
+Gatos
+</button>
+
+<button class="filter" data-filter="hospedagem">
+Hospedagem
+</button>
+
+</div>
+
+
+<div class="pros">
+
+
+<div class="pro" data-tags="todos cachorro hospedagem">
+
+<div class="top">
+
+<div class="avatar">
+👩🏻‍🦰🐶
+</div>
+
+<div>
+
+<h3>Ana Souza</h3>
+
+<div class="verified">
+✓ Perfil verificado
+</div>
+
+<div class="stars">
+★★★★★ <small>(48)</small>
+</div>
+
+</div>
+
+</div>
+
+<p>
+<b>Especialidade:</b>
+hospedagem e cuidados com cães.
+</p>
+
+<div class="chips">
+
+<span class="chip">Cães</span>
+<span class="chip">Hospedagem</span>
+<span class="chip">Passeios</span>
+
+</div>
+
+<div class="pro-actions">
+
+<button
+class="btn light"
+onclick="openProfile(
+'Ana Souza',
+'👩🏻‍🦰🐶',
+'Hospedagem e cuidados com cães',
+'4,9'
+)">
+Ver perfil
+</button>
+
+<button
+class="btn primary"
+onclick="book('Ana Souza')">
+Agendar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="pro" data-tags="todos gato hospedagem">
+
+<div class="top">
+
+<div class="avatar">
+👨🏽‍🦱🐱
+</div>
+
+<div>
+
+<h3>Lucas Lima</h3>
+
+<div class="verified">
+✓ Perfil verificado
+</div>
+
+<div class="stars">
+★★★★★ <small>(35)</small>
+</div>
+
+</div>
+
+</div>
+
+<p>
+<b>Especialidade:</b>
+gatos e acolhimento tranquilo.
+</p>
+
+<div class="chips">
+
+<span class="chip">Gatos</span>
+<span class="chip">Hospedagem</span>
+<span class="chip">Companhia</span>
+
+</div>
+
+<div class="pro-actions">
+
+<button
+class="btn light"
+onclick="openProfile(
+'Lucas Lima',
+'👨🏽‍🦱🐱',
+'Gatos e acolhimento tranquilo',
+'4,8'
+)">
+Ver perfil
+</button>
+
+<button
+class="btn primary"
+onclick="book('Lucas Lima')">
+Agendar
+</button>
+
+</div>
+
+</div>
+
+
+<div class="pro" data-tags="todos cachorro">
+
+<div class="top">
+
+<div class="avatar">
+👩🏽🐕
+</div>
+
+<div>
+
+<h3>Marina Alves</h3>
+
+<div class="verified">
+✓ Perfil verificado
+</div>
+
+<div class="stars">
+★★★★★ <small>(52)</small>
+</div>
+
+</div>
+
+</div>
+
+<p>
+<b>Especialidade:</b>
+companhia e rotina de cães.
+</p>
+
+<div class="chips">
+
+<span class="chip">Cães</span>
+<span class="chip">Companhia</span>
+<span class="chip">Rotina</span>
+
+</div>
+
+<div class="pro-actions">
+
+<button
+class="btn light"
+onclick="openProfile(
+'Marina Alves',
+'👩🏽🐕',
+'Companhia e rotina de cães',
+'5,0'
+)">
+Ver perfil
+</button>
+
+<button
+class="btn primary"
+onclick="book('Marina Alves')">
+Agendar
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+<section id="como" class="dark-section">
+
+<div class="container">
+
+<h2 class="title">
+Como funciona
+</h2>
+
+<p class="sub">
+Simples para você e confortável para o seu pet.
+</p>
+
+
+<div class="steps">
+
+<div class="step">
+<strong>1</strong>
+Escolha o serviço
+</div>
+
+<div class="step">
+<strong>2</strong>
+Veja profissionais
+</div>
+
+<div class="step">
+<strong>3</strong>
+Agende
+</div>
+
+<div class="step">
+<strong>4</strong>
+Pague
+</div>
+
+<div class="step">
+<strong>5</strong>
+Avalie
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="precos">
+
+<div class="container">
+
+<h2 class="title">
+Preço simples
+</h2>
+
+<p class="sub">
+No projeto da Pet Care, o serviço foi estimado em R$ 35.
+</p>
+
+
+<div class="cards">
+
+
+<div class="card" style="text-align:center">
+
+<div class="icon">🐾</div>
+
+<h3>
+Serviço Pet Care
+</h3>
+
+<div class="price">
+R$ 35
+</div>
+
+<p>
+por serviço, como valor estimado.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💳</div>
+
+<h3>
+Pagamento
+</h3>
+
+<p>
+Pix, cartão de crédito e débito.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🎁</div>
+
+<h3>
+Primeira contratação
+</h3>
+
+<p>
+Desconto especial de lançamento para novos clientes.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="avaliar" style="background:#fff">
+
+<div class="container">
+
+<h2 class="title">
+Avalie seu atendimento
+</h2>
+
+<p class="sub">
+Sua opinião ajuda a melhorar a experiência da Pet Care.
+</p>
+
+
+<div class="rating-box">
+
+<h3>
+Como foi sua experiência?
+</h3>
+
+
+<div class="rating-stars" id="ratingStars">
+
+<button data-v="1">★</button>
+<button data-v="2">★</button>
+<button data-v="3">★</button>
+<button data-v="4">★</button>
+<button data-v="5">★</button>
+
+</div>
+
+
+<input
+class="review"
+id="review"
+placeholder="Escreva uma avaliação (opcional)"
+>
+
+
+<button
+class="btn primary"
+onclick="sendReview()">
+Enviar avaliação
+</button>
+
+<p
+id="reviewMsg"
+style="margin-top:14px;font-weight:800">
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<h2 class="title">
+Por que Pet Care?
+</h2>
+
+
+<div class="about">
+
+
+<div class="card">
+
+<h3>
+💚 Bem-estar
+</h3>
+
+<p>
+Cuidado e atenção para os animais, com profissionais escolhidos pelo tutor.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🌱 Impacto positivo
+</h3>
+
+<p>
+A proposta incentiva sustentabilidade e apoia ações de adoção e proteção animal.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+📱 Praticidade
+</h3>
+
+<p>
+Uma plataforma para pesquisar, escolher, agendar e avaliar.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+💰 Acessibilidade
+</h3>
+
+<p>
+Preço estimado de R$ 35 por serviço, buscando um bom custo-benefício.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal()">
+×
+</button>
+
+<div id="modalContent"></div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<strong>Pet Care</strong>
+— É mais cuidado, sempre. 🐾
+
+<br>
+
+<small>
+Projeto escolar • Os profissionais exibidos são personagens fictícios.
+</small>
+
+</footer>
+
+
+<script>
+
+const modal=document.getElementById('modal');
+
+
+function openProfile(
+name,
+avatar,
+specialty,
+rating
+){
+
+document.getElementById('modalContent').innerHTML=`
+
+<div style="font-size:65px">
+${avatar}
+</div>
+
+<h2 style="color:#4a241d">
+${name}
+</h2>
+
+<p style="color:#3e9b83;font-weight:900">
+✓ Perfil verificado
+</p>
+
+<p>
+<b>Especialidade:</b>
+${specialty}
+</p>
+
+<p class="stars">
+★★★★★ ${rating}/5
+</p>
+
+<p>
+Perfil demonstrativo para o projeto da Pet Care.
+</p>
+
+<button
+class="btn primary"
+onclick="book('${name}')">
+Agendar atendimento
+</button>
+
+`;
+
+modal.classList.add('show');
+
+}
+
+
+function book(name){
+
+document.getElementById('modalContent').innerHTML=`
+
+<h2 style="color:#4a241d">
+Agendar com ${name}
+</h2>
+
+<p>
+Escolha uma data e deixe uma mensagem:
+</p>
+
+<input
+id="date"
+type="date"
+style="
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+margin:10px 0
+">
+
+<textarea
+id="msg"
+style="
+width:100%;
+min-height:100px;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px
+"
+placeholder="O que seu pet precisa?"
+></textarea>
+
+<button
+class="btn primary"
+onclick="confirmBooking('${name}')">
+Confirmar pedido
+</button>
+
+`;
+
+modal.classList.add('show');
+
+}
+
+
+function confirmBooking(name){
+
+document.getElementById('modalContent').innerHTML=`
+
+<h2 style="color:#4a241d">
+Pedido enviado! 🐾
+</h2>
+
+<p>
+Seu pedido demonstrativo para
+<b>${name}</b>
+foi registrado.
+
+Em uma plataforma real, o profissional receberia a solicitação para confirmar o atendimento.
+</p>
+
+<button
+class="btn green"
+onclick="closeModal()">
+Fechar
+</button>
+
+`;
+
+}
+
+
+function closeModal(){
+
+modal.classList.remove('show')
+
+}
+
+
+modal.addEventListener(
+'click',
+e=>{
+if(e.target===modal)
+closeModal()
+}
+);
+
+
+document.querySelectorAll('.filter').forEach(
+
+btn=>btn.onclick=()=>{
+
+document.querySelectorAll('.filter')
+.forEach(
+b=>b.classList.remove('active')
+);
+
+btn.classList.add('active');
+
+let f=btn.dataset.filter;
+
+document.querySelectorAll('.pro')
+.forEach(
+p=>
+p.style.display=
+(f==='todos'||p.dataset.tags.includes(f))
+?'block'
+:'none'
+);
+
+}
+
+);
+
+
+let selected=0;
+
+
+document
+.querySelectorAll('#ratingStars button')
+.forEach(
+
+b=>b.onclick=()=>{
+
+selected=+b.dataset.v;
+
+document
+.querySelectorAll('#ratingStars button')
+.forEach(
+x=>
+x.classList.toggle(
+'on',
++x.dataset.v<=selected
+)
+);
+
+}
+
+);
+
+
+function sendReview(){
+
+let m=document.getElementById('reviewMsg');
+
+m.textContent=
+
+selected
+
+?
+
+`Obrigado! Você deu ${selected} estrela${selected>1?'s':''}. 🐾`
+
+:
+
+'Escolha de 1 a 5 estrelas para enviar sua avaliação.';
+
+m.style.color=
+selected
+?
+'#3e9b83'
+:
+'#f47a28';
+
+}
+
+</script>
+
+</body>
+</html>
